@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    container_name: fraudguard-api
+    command: uvicorn api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=TU_API_KEY_DE_GEMINI_AQUI
+    restart: always
+
+  dashboard:
+    build: .
+    container_name: fraudguard-dashboard
+    command: streamlit run dashboard.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    restart: always
