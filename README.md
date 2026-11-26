@@ -1,10 +1,10 @@
-# 🛡️ FraudGuard AI — Motor de Detección de Fraude en Tiempo Real (PagoSeguro)
+# FraudGuard AI — Motor de Detección de Fraude en Tiempo Real (PagoSeguro)
 
 Sistema de detección preventiva de fraude financiero en tiempo real diseñado bajo una **arquitectura híbrida de baja latencia**, cumpliendo con los estándares de disponibilidad, seguridad (**PCI-DSS**) y explicabilidad regulatoria (**CMF - Comisión para el Mercado Financiero**).
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 El sistema desacopla la inferencia crítica de baja latencia de la generación de explicaciones para auditoría:
 
@@ -24,7 +24,7 @@ El sistema desacopla la inferencia crítica de baja latencia de la generación d
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del Repositorio
 
 ```text
 ├── api.py                  # Microservicio REST en FastAPI (XGBoost + Gemini API)
@@ -40,7 +40,7 @@ El sistema desacopla la inferencia crítica de baja latencia de la generación d
 
 ---
 
-## 🚀 Despliegue Rápido con Docker (Recomendado)
+## Despliegue Rápido con Docker (Recomendado)
 
 ### 1. Prerrequisitos
 * Docker y Docker Compose v2 instalados.
@@ -73,7 +73,7 @@ sudo docker ps
 
 ---
 
-## 💻 Ejecución en Entorno Local (Desarrollo)
+## Ejecución en Entorno Local (Desarrollo)
 
 1. Instalar dependencias:
    ```bash
@@ -94,7 +94,7 @@ sudo docker ps
 
 ---
 
-## 🔌 Ejemplo de Uso de la API
+## Ejemplo de Uso de la API
 
 **Endpoint:** `POST /api/v1/evaluar-pago`  
 **Header requerido:** `x-api-key: pagoseguro-secret-2026`
@@ -115,7 +115,7 @@ curl -X POST "http://localhost:8000/api/v1/evaluar-pago" \
 
 ---
 
-## 📊 Pruebas de Carga y Rendimiento (Locust)
+## Pruebas de Carga y Rendimiento (Locust)
 
 Para validar el cumplimiento del SLA (`< 100 ms` de latencia y `0%` de tasa de error bajo concurrencia), ejecuta la suite de pruebas de estrés:
 
@@ -126,7 +126,7 @@ Accede a `http://localhost:8089` para configurar la simulación de usuarios conc
 
 ---
 
-## 🔒 Seguridad y Cumplimiento Normativo
+## Seguridad y Cumplimiento Normativo
 * **Gestión de Secretos:** Inyección de claves vía variables de entorno (`.env` excluido mediante `.gitignore`).
 * **Control de Acceso:** Autenticación mediante `API Key` en cabeceras HTTP.
 * **Privacidad de Datos (PCI-DSS):** El motor de inferencia procesa únicamente metadatos conductuales anonimizados; no recibe ni almacena números de tarjeta (PAN) ni códigos CVV.
